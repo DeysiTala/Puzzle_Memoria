@@ -105,12 +105,14 @@ if(contadorClick ==1)
 	contadorClick=0;
 	if (imagenAnterior==cont_image) {
 		console.log("iguales");
-	}else{
+	}else{ setTimeout(function(){
 		console.log("no son iguales")
 		cont_image.src = fondito;
 		var elementoAnterior = document.getElementById(idimagenAnterior);
 		elementoAnterior.removeAttribute('src');
 		elementoAnterior.src= fondito;
+}, 3000);
+
 	}
 }
 
