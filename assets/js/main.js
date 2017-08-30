@@ -59,7 +59,7 @@ var imagenes =[
 	"assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
 	"assets/img/murakamicat.png","assets/img/saketocat.png","assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
 	"assets/img/murakamicat.png","assets/img/saketocat.png"];
-
+var fondito;
 function createimg(){
 
 
@@ -71,7 +71,7 @@ var imagn =document.getElementById("container");
 
 var fondo = document.getElementById("container");
 //var fondito= document.createElement("img");
-var fondito ="assets/img/OpenSource.png";
+fondito ="assets/img/OpenSource.png";
         
                                   
             
@@ -87,17 +87,48 @@ tag_img.classList.add("picture");
 
 }
 createimg();
-
+//cambio de imagenes
+var contadorClick =0;
 function otherimage(e){
 
 var cont_image = e.target;
  var imgId = cont_image.id;
  cont_image.src = imagenes[imgId];
+contadorClick++ ;
+
+if(contadorClick ==1)
+{
+ var imagenAnterior = imagenes[imgId];
+ idimagenAnterior= cont_image.id;
+}else if(contadorClick==2){
+	console.log(contadorClick);
+	contadorClick=0;
+	if (imagenAnterior==cont_image) {
+		console.log("iguales");
+	}else{
+		console.log("no son iguales")
+		cont_image.src = fondito;
+		var elementoAnterior = document.getElementById(idimagenAnterior);
+		elementoAnterior.removeAttribute('src');
+		elementoAnterior.src= fondito;
+	}
+}
+
+
+
+
 }
 
 var cont = document.getElementById("container");
+cont.addEventListener("click",otherimage);
 
-cont.addEventListener("click",otherimage)
+
+
+
+//comparacion de imagenes 
+
+
+
 
 
 

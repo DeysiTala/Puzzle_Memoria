@@ -13,8 +13,13 @@ img {
 	
 	width:	484px; 
 	height: 289px;
-	border: 1px solid black;
-
+	
+	-webkit-box-shadow: 3px 11px 42px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 11px 42px 3px rgba(0,0,0,0.75);
+box-shadow: 3px 11px 42px 3px rgba(0,0,0,0.75);
+-moz-border-radius: 51px 51px 51px 51px;
+-webkit-border-radius: 51px 51px 51px 51px;
+border: 0px solid #000000;
 }
 
  .title{
@@ -26,7 +31,7 @@ img {
 	flex-direction: row;
 
 }*/
-#fondito{
+#picture{
 
 
 	background-color: green;
