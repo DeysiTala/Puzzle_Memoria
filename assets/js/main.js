@@ -55,29 +55,30 @@ tag_img.classList.add("picture");
 
 }
 }*/
-
-function createimg(){
-
 var imagenes =[
 	"assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
 	"assets/img/murakamicat.png","assets/img/saketocat.png","assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
 	"assets/img/murakamicat.png","assets/img/saketocat.png"];
+
+function createimg(){
+
+
 	for(var i=0; i<imagenes.length; i++){
 var imagn =document.getElementById("container");
-var filas = document.createElement("tr");
-filas.setAttribute("id","filitas");
-filas.classList.add("filass");
+//var filas = document.createElement("tr");
+//filas.setAttribute("id","filitas");
+//filas.classList.add("filass");
 
 var fondo = document.getElementById("container");
-var fondito= document.createElement("img");
-fondito.src ="assets/img/OpenSource.png";
+//var fondito= document.createElement("img");
+var fondito ="assets/img/OpenSource.png";
         
                                   
             
 
 var tag_img =document.createElement("img");
-tag_img.setAttribute('src',imagenes[i]);
-tag_img.setAttribute("id","pictures");
+tag_img.setAttribute('src',fondito);
+tag_img.setAttribute("id",i);
 tag_img.classList.add("picture");
 		imagn.appendChild(tag_img);
 		//tag_img.appendChild(fondito);
@@ -87,51 +88,27 @@ tag_img.classList.add("picture");
 }
 createimg();
 
-/*
-var imagenes =[
-	"assets/img/canguro.jpg","assets/img/koala.jpg","assets/oso.jpg",
-	"assets/img/canguro.jpg","assets/img/koala.jpg","assets/oso.jpg"];
+function otherimage(e){
 
-	var mybody = document.getElementById("container");
-	var table = document.createElement("table");
-	var tableBody = document.createElement("tbody");
-
-
-
-function tablitas(){
-	for(var i=0; i<imagenes.length; i++){
-
-		var filas = document.createElement("tr")
-		var tag_img =document.createElement("img");
-		
-			for(var j=0; j<imagenes.length;j++){
-			tag_img.setAttribute('src',imagenes[i][j]);
-
-			var celda = document.createElement("td");
-			filas.appendChild(celda);
-			celda.appendChild(tag_img);
-
-		
-		table.appendChild(celda);
-		}
-	
-		tableBody.appendChild(filas);
-
-	}
-table.appendChild(tableBody);
-
-mybody.appendChild(table);
-
-
-table.setAttribute("border","1");
+var cont_image = e.target;
+ var imgId = cont_image.id;
+ cont_image.src = imagenes[imgId];
 }
-	tablitas();
+
+var cont = document.getElementById("container");
+
+cont.addEventListener("click",otherimage)
 
 
-filas.onclick =function (){
-if (document.getElementById("filitas").style.visibility="visible") {
-	document.getElementById("filitas").style.visibility="hidden";
-createTable();
-}
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
