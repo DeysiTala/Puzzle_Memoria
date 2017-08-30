@@ -1,4 +1,3 @@
-
 /*function createTable(){
 var imagenes =[
 	"assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
@@ -43,7 +42,7 @@ filas.classList.add("filass");
 var fondito= document.createElement("img");
 fondito.src ="assets/img/OpenSource.png";
         
-                                  
+                           
             
 
 var tag_img =document.createElement("img");
@@ -55,93 +54,69 @@ tag_img.classList.add("picture");
 
 }
 }*/
-var imagenes =[
-	"assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
-	"assets/img/murakamicat.png","assets/img/saketocat.png","assets/img/adventure-cat.png","assets/img/GitCover.png","assets/img/labo.png", "assets/img/minion.png",
-	"assets/img/murakamicat.png","assets/img/saketocat.png"];
+var imagenes = [
+	"assets/img/adventure-cat.png", "assets/img/GitCover.png", "assets/img/labo.png", "assets/img/minion.png",
+	"assets/img/murakamicat.png", "assets/img/saketocat.png", "assets/img/adventure-cat.png", "assets/img/GitCover.png", "assets/img/labo.png", "assets/img/minion.png",
+	"assets/img/murakamicat.png", "assets/img/saketocat.png"
+];
 var fondito;
-function createimg(){
+
+function createimg() {
 
 
-	for(var i=0; i<imagenes.length; i++){
-var imagn =document.getElementById("container");
-//var filas = document.createElement("tr");
-//filas.setAttribute("id","filitas");
-//filas.classList.add("filass");
+	for (var i = 0; i < imagenes.length; i++) {
+		var imagn = document.getElementById("container");
+		var fondo = document.getElementById("container");
+		fondito = "assets/img/OpenSource.png";
 
-var fondo = document.getElementById("container");
-//var fondito= document.createElement("img");
-fondito ="assets/img/OpenSource.png";
-        
-                                  
-            
 
-var tag_img =document.createElement("img");
-tag_img.setAttribute('src',fondito);
-tag_img.setAttribute("id",i);
-tag_img.classList.add("picture");
+
+		var tag_img = document.createElement("img");
+		tag_img.setAttribute('src', fondito);
+		tag_img.setAttribute("id", i);
+		tag_img.classList.add("picture");
 		imagn.appendChild(tag_img);
 		//tag_img.appendChild(fondito);
 
-}
+	}
 
 }
 createimg();
 //cambio de imagenes
-var contadorClick =0;
-function otherimage(e){
+var contadorClick = 0;
+var imagenAnterior;
+var idimagenAnterior;
+function otherimage(e) {
 
-var cont_image = e.target;
- var imgId = cont_image.id;
- cont_image.src = imagenes[imgId];
-contadorClick++ ;
-
-if(contadorClick ==1)
-{
- var imagenAnterior = imagenes[imgId];
- idimagenAnterior= cont_image.id;
-}else if(contadorClick==2){
+	var cont_image = e.target;
+	var imgId = cont_image.id;
+	cont_image.src = imagenes[imgId];
+	contadorClick++;
 	console.log(contadorClick);
-	contadorClick=0;
-	if (imagenAnterior==cont_image) {
-		console.log("iguales");
-	}else{ setTimeout(function(){
-		console.log("no son iguales")
-		cont_image.src = fondito;
-		var elementoAnterior = document.getElementById(idimagenAnterior);
-		elementoAnterior.removeAttribute('src');
-		elementoAnterior.src= fondito;
-}, 3000);
+	if (contadorClick == 1) {
+		imagenAnterior = cont_image.src;//enlace de la imagen
+		idimagenAnterior = cont_image.id;//buscamos el id
+	} else if (contadorClick == 2) {
+		console.log(contadorClick);
+		contadorClick = 0;
+		if (imagenAnterior == cont_image.src) {
+			
+			console.log("iguales");
+		} else {
+			//console.log(imagenAnterior);
+			//console.log(cont_image);
+			setTimeout(function() {
+				console.log("no son iguales")
+				cont_image.src = fondito;
+				var elementoAnterior = document.getElementById(idimagenAnterior);
+				elementoAnterior.removeAttribute('src');
+				elementoAnterior.src = fondito;
+			}, 2000);
 
+		}
 	}
-}
-
-
-
 
 }
 
 var cont = document.getElementById("container");
-cont.addEventListener("click",otherimage);
-
-
-
-
-//comparacion de imagenes 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+cont.addEventListener("click", otherimage);
